@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: eurekaClient
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true
+server:
+  port: 9000
+eureka:
+  client:
+    service-url:
+#      注册中心地址
+      defaultZone:  http://localhost:8761/eureka/
+  instance:
+    # 自最后一次接收到心跳后等待时间(默认为90秒)
+    lease-expiration-duration-in-seconds: 5
+    # 发送心跳的时间间隔(默认为30秒)
+    lease-renewal-interval-in-seconds: 2
+feign:
+  hystrix:
+    enabled:  true
